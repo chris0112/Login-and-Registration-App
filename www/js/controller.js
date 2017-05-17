@@ -52,6 +52,7 @@ angular.module('ionicApp.controllers', [])
         console.log('Register Page')
     }
 
+
 })
 
 .controller('signupCtrl', function($scope, $ionicModal) {
