@@ -1,6 +1,6 @@
 angular.module('ionicApp.controllers', [])
 
-.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
+.controller('LoginCtrl', function($scope, $state) {
     $scope.data = {}
  
     $scope.phone = function(data) {
@@ -8,19 +8,16 @@ angular.module('ionicApp.controllers', [])
         console.log('Enter Phone Number')
     }
 
-    $scope.logIn = function() {
-        LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
-            $state.go('tabs.contacts')
-            console.log('Login Successfully')
-        })
-            .error(function(data) {
-                console.log('Login Failed')
-                var alertPopup = $ionicPopup.alert({
-                title: 'Login failed!',
-                template: '<h4 style="text-align: center">Please Try Again!!!</h4>'            
-        })
-      })
-   }
+    /*
+    <Server code here....>
+    success: function(user) {
+        console.log(user);
+        alert("Logged in!")
+    },
+    error:function(user, error) {
+        alert("Invalid Username or Password!");
+    }*/
+
 })
 
 .controller('ContactsCtrl', function($scope, $ionicModal) {
@@ -47,14 +44,42 @@ angular.module('ionicApp.controllers', [])
 })
 
 .controller('phoneCtrl', function($scope, $ionicModal, $state) {
-    $scope.signup = function(data) {
-        $state.go('register')
-        console.log('Register Page')
+    $scope.valid = function(data) {
+        $state.go('validation')
+        console.log('Validation Page')
     }
 
 
 })
 
-.controller('signupCtrl', function($scope, $ionicModal) {
+.controller('validationCtrl', function($scope, $ionicPopup, $state) {
+    $scope.signup = function(data) {
+        $state.go('register')
+        console.log('Register Page')
+        var alertPopup = $ionicPopup.alert({
+                title: 'Validated',
+        template: '<h4 style="text-align: center">Success!</h4>' 
+    })
+
+    }
     
+})
+
+.controller('signupCtrl', function($scope) {
+       /*
+        <Server code here....>
+        var user 
+        user.set("username", $scope.data.username);
+        user.set("firstname", $scope.data.firstname);
+        user.set("lastname", $scope.data.lastname);
+        user.set("password", $scope.data.password);
+
+        user.register(null, {
+            success: function(user) {
+                alert("success!");
+            },
+            error:function(user, error) {
+                alert("Error: " + error.code + "" + error.message);
+            }
+        })*/
 })

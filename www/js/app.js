@@ -31,6 +31,12 @@ angular.module('ionicApp', ['ionic', 'ionicApp.controllers', 'ionicApp.services'
       controller: 'phoneCtrl'
 })
 
+   .state('validation', {
+      url: '/validation',
+      templateUrl: 'templates/validation.html',
+      controller: 'validationCtrl'
+})
+
    .state('register', {
       url: '/register',
       templateUrl: 'templates/register.html',
