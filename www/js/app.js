@@ -6,7 +6,13 @@ angular.module('ionicApp', ['ionic', 'ionicApp.controllers', 'ionicApp.services'
     .state('login', {
       url: '/log-in',
       templateUrl: 'templates/log-in.html',
-      controller: 'LoginCtrl'
+      controller: 'signupCtrl'
+})
+
+    .state('register', {
+      url: '/register',
+      templateUrl: 'templates/register.html',
+      controller: 'signupCtrl'
 })
 
     .state('tabs', {
@@ -19,8 +25,7 @@ angular.module('ionicApp', ['ionic', 'ionicApp.controllers', 'ionicApp.services'
       url: '/contacts',
       views: {
         'contacts-tab': {
-          templateUrl: 'templates/tabs-contacts.html',
-          controller: 'ContactsCtrl'
+          templateUrl: 'templates/tabs-contacts.html'
       }
     }
 })
@@ -35,12 +40,6 @@ angular.module('ionicApp', ['ionic', 'ionicApp.controllers', 'ionicApp.services'
       url: '/validation',
       templateUrl: 'templates/validation.html',
       controller: 'validationCtrl'
-})
-
-   .state('register', {
-      url: '/register',
-      templateUrl: 'templates/register.html',
-      controller: 'signupCtrl'
 })
 
     $urlRouterProvider.otherwise('/log-in');
